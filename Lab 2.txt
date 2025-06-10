@@ -1,0 +1,80 @@
+TASK1 
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i = 1;
+    int sum = 0;
+
+    while (i <= 20) {
+        if (i % 2 == 0) { 
+            sum += i;
+        }
+        i++;
+        }
+    cout << "Сумма чётных чисел от 1 до 20: " << sum << endl;
+    return 0;
+}
+
+
+
+
+TASK 2
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string password;
+    int attempts = 0;
+
+    do {
+        cout << "Введите пароль: ";
+        cin >> password;
+        attempts++; 
+    } while (password != "1234" && attempts < 3); 
+
+    if (password == "1234") {
+        cout << "Доступ разрешён!" << endl;
+    } else {
+        cout << "Слишком много попыток!" << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+TASK 3
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int health = 100;
+    bool enemy = true;
+    int enemy_hp = 100;
+    while (health > 0 && enemy) {
+        int damage;
+        
+        cout << "Введите урон по врагу (жизнь вашего врага " << enemy_hp << "): ";
+        cin >> damage;
+        enemy_hp = enemy_hp - damage;
+
+        if (enemy_hp <= 0) {
+            enemy = false;
+        } else {
+            health -= 20; // присваивание и арифметика
+            cout << "Враг ещё жив. Ваше здоровье: " << health << endl;
+        }
+    }
+
+    if ( not enemy)
+        cout << "Вы победили врага!" << endl;
+    else
+        cout << "Вы проиграли." << endl;
+
+    return 0;
+}
